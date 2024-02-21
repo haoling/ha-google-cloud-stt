@@ -24,6 +24,7 @@ import homeassistant.helpers.config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
 
+DEFAULT_KEY_FILE = "google_cloud_credential.json"
 DEFAULT_MODEL = "command_and_search"
 
 CONF_KEY_FILE = "key_file"
@@ -180,7 +181,7 @@ MODEL_SCHEMA = vol.In(SUPPORTED_MODELS)
 
 PLATFORM_SCHEMA = cv.PLATFORM_SCHEMA.extend(
     {
-        vol.Optional(CONF_KEY_FILE): cv.string,
+        vol.Optional(CONF_KEY_FILE, default=DEFAULT_KEY_FILE): cv.string,
         vol.Optional(CONF_MODEL, default=DEFAULT_MODEL): MODEL_SCHEMA,
     }
 )
